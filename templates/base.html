@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>please log in!</title>
+    </head>
+    <body>
+        <h2>Sign in here!</h2>
+        <form action = "/check_creds" method = "post">
+            <p>Username:</p>
+            <input type = "text" name = "user">
+            <p>Password:</p>
+            <input type = "password" name = "passw">
+            <br><br>
+            <input type = "submit" value = "submit">
+        </form>
+        <br>
+        {% if user %}
+        <p>Wrong username!</p>
+        {% endif %}
+        {% if passw %}
+        <p>Wrong password!</p>
+        {% endif %}
+
+    </body>
+</html>
