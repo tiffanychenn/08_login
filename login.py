@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, flash
 import os
 
 jinjas_in_the_night = Flask(__name__)
@@ -13,9 +13,11 @@ def root():
         return redirect(url_for("welcome"))
     elif "pass" in session:
         session.pop("pass")
+        flash("Wrong password!")
         return root(False, True)
     elif "user" in session:
         session.pop("user")
+        flash("Wrong username!")
         return root(True, False)
     else:
         return root(False, False)
